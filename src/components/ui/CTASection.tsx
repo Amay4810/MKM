@@ -18,11 +18,11 @@ export default function CTASection({
   const headingId = `cta-heading-${id}`;
 
   return (
-    <section className="bg-navy py-20 lg:py-28 no-print" aria-labelledby={headingId}>
+    <section className="bg-navy py-10 lg:py-14 no-print" aria-labelledby={headingId}>
       <div className="container-corporate">
         <div className="max-w-3xl">
           {/* Minimal gold accent — only a thin rule */}
-          <span className="inline-block w-10 h-px bg-gold/50 mb-8" aria-hidden="true" />
+          <span className="inline-block w-8 h-px bg-gold/50 mb-5" aria-hidden="true" />
 
           <motion.h2
             id={headingId}
@@ -41,7 +41,7 @@ export default function CTASection({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, delay: 0.1 }}
-              className="text-base text-white/60 mb-10 leading-relaxed max-w-xl"
+              className="text-sm text-white/60 mb-6 leading-relaxed max-w-xl"
             >
               {subtext}
             </motion.p>
@@ -89,7 +89,7 @@ export default function CTASection({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.55, delay: 0.35 }}
-            className="mt-8 flex flex-wrap gap-x-6 gap-y-1"
+            className="mt-5 flex flex-wrap gap-x-6 gap-y-1"
           >
             {contactInfo.phones.map((phone) => (
               <a

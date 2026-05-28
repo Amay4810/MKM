@@ -7,8 +7,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy text-white/70" role="contentinfo">
-      <div className="container-corporate py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container-corporate py-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
           {/* Brand */}
           <div>
@@ -83,7 +83,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="container-corporate py-3.5">
+        <div className="container-corporate py-2.5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-1">
             <p className="text-xs text-white/30">
               © {year} MKM Air Travels Pvt. Ltd. All rights reserved.
