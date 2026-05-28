@@ -85,7 +85,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="text-base lg:text-lg text-white/55 leading-relaxed mb-10 max-w-xl"
             >
-              MKM Air Travels Pvt. Ltd. is an IATA accredited and TAAI affiliated travel management company based in New Delhi, serving corporates, SMEs, institutions, groups, and individual travellers with reliable end-to-end travel solutions.
+              MKM Air Travels Pvt. Ltd. is an IATA accredited and TAAI affiliated travel management company based in New Delhi.
+              <br />
+              We are serving corporates, SMEs, institutions, groups, and individual travellers with reliable end-to-end travel solutions.
             </motion.p>
 
             {/* CTAs */}
@@ -154,7 +156,7 @@ export default function HeroSection() {
               'TAAI affiliated member',
               'Corporate & MICE travel specialists',
               'GST registered private limited company',
-              'Based in New Delhi — serving PAN India',
+              'Based in New Delhi - serving PAN India',
             ].map((point, i) => (
               <motion.div
                 key={i}
