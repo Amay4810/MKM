@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mkmairtravels.com/sitemap.xml
