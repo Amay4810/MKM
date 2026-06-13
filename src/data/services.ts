@@ -17,7 +17,7 @@ export const services: Service[] = [
       'Domestic and international air reservations, fare options, itinerary changes, cancellations, and travel coordination.',
     icon: 'Plane',
     fullDescription:
-      'We manage the complete ticketing process — domestic and international routes, fare comparisons, booking confirmation, changes, cancellations, and reissuance — handled by experienced travel professionals.',
+      'We manage the complete ticketing process — domestic and international routes, fare comparisons, booking confirmation, changes, cancellations, and reissuance - handled by experienced travel professionals.',
   },
   {
     id: 'hotels',
@@ -53,7 +53,7 @@ export const services: Service[] = [
       'Travel planning and coordination for meetings, incentives, conferences, exhibitions, corporate offsites, and group travel bookings.',
     icon: 'Users',
     fullDescription:
-      'MKM manages end-to-end logistics for MICE movements — planning, booking, coordination of flights, hotels, transfers, and group accommodation for corporate events, offsites, incentive trips, conferences, and exhibitions.',
+      'MKM manages end-to-end logistics for MICE movements - planning, booking, coordination of flights, hotels, transfers, and group accommodation for corporate events, offsites, incentive trips, conferences, and exhibitions.',
   },
   {
     id: 'leisure',

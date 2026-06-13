@@ -147,6 +147,15 @@
   outline-offset: 3px;
 }
 
+/* ─── Globe section utilities ─── */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ─── Print ─── */
 @media print {
   .no-print { display: none; }

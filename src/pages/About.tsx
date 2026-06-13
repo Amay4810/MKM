@@ -4,22 +4,23 @@ import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
 import CTASection from '../components/ui/CTASection';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import DestinationMap from '../components/sections/DestinationMap';
 
 const timeline = [
   { year: '1999', event: 'MKM Air Travels established in New Delhi' },
   { year: '2000s', event: 'Built foundations in corporate ticketing and group travel handling' },
   { year: '2010s', event: 'Expanded services to include MICE, visa assistance, and ground transport' },
   { year: '2020s', event: 'Continued growth through long-term client relationships and referral trust' },
-  { year: 'Today', event: '25+ years of operational continuity — IATA accredited, TAAI affiliated' },
+  { year: 'Today', event: '25+ years of operational continuity - IATA accredited, TAAI affiliated' },
 ];
 
 const principles = [
   { title: 'Reliability', desc: 'Consistent, dependable service across every client engagement and travel category.' },
-  { title: 'Responsiveness', desc: 'Quick turnaround on requests, changes, and urgent requirements — including last-minute bookings.' },
+  { title: 'Responsiveness', desc: 'Quick turnaround on requests, changes, and urgent requirements - including last-minute bookings.' },
   { title: 'Transparency', desc: 'Clear communication, honest documentation, and straightforward billing with no hidden charges.' },
-  { title: 'Personal Attention', desc: 'Every client is handled directly by an experienced team — not passed through automated workflows or call centres.' },
+  { title: 'Personal Attention', desc: 'Every client is handled directly by an experienced team - not passed through automated workflows or call centres.' },
   { title: 'Long-term Trust', desc: 'We have grown through repeat clients and word-of-mouth relationships, not advertising. Our track record speaks for itself.' },
-  { title: 'Industry Credentials', desc: 'IATA accredited and TAAI affiliated — operating within established professional frameworks for over 25 years.' },
+  { title: 'Industry Credentials', desc: 'IATA accredited and TAAI affiliated - operating within established professional frameworks for over 25 years.' },
 ];
 
 export default function About() {
@@ -100,6 +101,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <DestinationMap />
 
       {/* Approach */}
       <section className="section-pad bg-section-alt">

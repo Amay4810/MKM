@@ -6,7 +6,7 @@ export const whyReasons: WhyReason[] = [
     number: '01',
     title: 'Established Since 1999',
     description:
-      'MKM brings over 25 years of continuity and operational experience in the travel industry — a track record built through consistent service, not marketing.',
+      'MKM brings over 25 years of continuity and operational experience in the travel industry - a track record built through consistent service, not marketing.',
   },
   {
     id: 'reason-2',
@@ -27,14 +27,14 @@ export const whyReasons: WhyReason[] = [
     number: '04',
     title: 'Personalised Human Support',
     description:
-      'Clients receive direct attention from an experienced team that handles travel requirements with ownership — not automated systems or impersonal workflows.',
+      'Clients receive direct attention from an experienced team that handles travel requirements with ownership - not automated systems or impersonal workflows.',
   },
   {
     id: 'reason-5',
     number: '05',
     title: 'Strong Handling Across Travel Categories',
     description:
-      'Corporate ticketing, hotels, visas, transfers, MICE travel, group travel, leisure bookings, forex coordination, and travel insurance assistance — all under one roof.',
+      'Corporate ticketing, hotels, visas, transfers, MICE travel, group travel, leisure bookings, forex coordination, and travel insurance assistance - all under one roof.',
   },
   {
     id: 'reason-6',

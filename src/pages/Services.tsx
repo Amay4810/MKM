@@ -80,7 +80,7 @@ export default function Services() {
                       <p className={`text-sm leading-relaxed ${isEven ? 'text-slate-corporate' : 'text-white/55'}`}>
                         Talk to MKM for{' '}
                         <span className="font-medium">{service.title.toLowerCase()}</span>{' '}
-                        requirements — corporate, group, or individual.
+                        requirements - corporate, group, or individual.
                       </p>
                     </div>
                   </div>
