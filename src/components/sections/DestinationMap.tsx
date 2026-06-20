@@ -259,7 +259,7 @@ export default function DestinationMap() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #F5F8FC 0%, #EBF4FF 55%, #F5F8FC 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #F5F8FC 0%, #EBF4FF 55%, #F5F8FC 100%)', cursor: 'default' }}
       aria-labelledby="dest-map-heading"
     >
       {/* Subtle grid */}
@@ -325,7 +325,10 @@ export default function DestinationMap() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_272px] gap-3">
 
             {/* ── Globe card ── */}
-            <div className="rounded-2xl border border-[#E5EAF2] bg-white/55 backdrop-blur-sm shadow-[0_4px_24px_rgba(10,77,162,0.07),0_1px_4px_rgba(0,0,0,0.04)] overflow-hidden">
+            <div
+              className="rounded-2xl border border-[#E5EAF2] bg-white/55 backdrop-blur-sm shadow-[0_4px_24px_rgba(10,77,162,0.07),0_1px_4px_rgba(0,0,0,0.04)] overflow-hidden"
+              style={{ contain: 'layout style paint' }}
+            >
 
               {/* Top bar */}
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#E5EAF2] bg-white/80">
@@ -382,9 +385,9 @@ export default function DestinationMap() {
                   </Suspense>
                 )}
 
-                {/* Mobile touch hint */}
-                <div className="lg:hidden absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
-                  <span className="text-[10px] text-[#8A93A0] bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-[#E5EAF2] shadow-sm whitespace-nowrap">
+                {/* Mobile touch hint — pointer-events-none prevents cursor trapping */}
+                <div className="lg:hidden absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none select-none">
+                  <span className="text-[10px] text-[#8A93A0] bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-[#E5EAF2] shadow-sm whitespace-nowrap pointer-events-none">
                     Drag to rotate · Pinch to zoom
                   </span>
                 </div>
@@ -401,8 +404,8 @@ export default function DestinationMap() {
             </div>
           </div>
 
-          {/* ── Legend ── */}
-          <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1.5 px-1">
+          {/* ── Legend — pointer-events-none prevents cursor sticking ── */}
+          <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1.5 px-1 pointer-events-none select-none">
             <div className="flex items-center gap-1.5 text-xs text-[#5A6474]">
               <span className="w-2.5 h-2.5 rounded-full bg-[#0A4DA2] flex-shrink-0" />
               Hub — New Delhi

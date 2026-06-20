@@ -35,12 +35,12 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-corporate ${
           scrolled
             ? 'bg-navy shadow-nav border-b border-white/10'
-            : 'bg-navy/95 backdrop-blur-sm'
+            : 'bg-navy/95 backdrop-blur-md'
         }`}
         role="banner"
       >
         <div className="container-corporate">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-16 lg:h-[4.5rem]">
             {/* Logo */}
             <Link
               to="/"
@@ -111,10 +111,10 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed inset-0 z-40 bg-navy pt-16 lg:hidden overflow-y-auto"
             role="dialog"
             aria-label="Mobile navigation"

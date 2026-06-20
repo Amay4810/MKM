@@ -12,26 +12,34 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent overscroll bounce / scroll-chaining */
+    overscroll-behavior: none;
   }
 
   body {
     @apply font-sans text-charcoal bg-white;
     font-size: 16px;
     line-height: 1.65;
+    /* Prevent layout shift from scrollbar appearance */
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-navy;
     line-height: 1.2;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   p {
     @apply text-slate-corporate;
+    text-wrap: pretty;
   }
 
   a {
     @apply transition-colors duration-200;
+    -webkit-tap-highlight-color: transparent;
   }
 
   img {
@@ -40,6 +48,11 @@
 
   ::selection {
     @apply bg-navy text-white;
+  }
+
+  /* Ensure interactive elements have proper cursor reset */
+  section {
+    cursor: default;
   }
 }
 
@@ -66,34 +79,54 @@
     @apply inline-block w-20 h-px bg-gold mb-8;
   }
 
-  /* Corporate button styles */
+  /* Corporate button styles — with improved transitions */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-navy text-white text-sm font-medium tracking-wide
            border border-navy transition-all duration-200 hover:bg-navy-light hover:border-navy-light
            focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2;
+    transform: translateZ(0);
+  }
+  .btn-primary:active {
+    transform: translateY(1px) translateZ(0);
   }
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-transparent text-navy text-sm font-medium tracking-wide
            border border-navy transition-all duration-200 hover:bg-navy hover:text-white
            focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2;
+    transform: translateZ(0);
+  }
+  .btn-secondary:active {
+    transform: translateY(1px) translateZ(0);
   }
 
   .btn-outline-white {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-transparent text-white text-sm font-medium tracking-wide
            border border-white/40 transition-all duration-200 hover:bg-white/10 hover:border-white/60
            focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy;
+    transform: translateZ(0);
+  }
+  .btn-outline-white:active {
+    transform: translateY(1px) translateZ(0);
   }
 
   .btn-white {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-white text-navy text-sm font-medium tracking-wide
            border border-white transition-all duration-200 hover:bg-ivory
            focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy;
+    transform: translateZ(0);
+  }
+  .btn-white:active {
+    transform: translateY(1px) translateZ(0);
   }
 
-  /* Card base */
+  /* Card base — with GPU-friendly transitions */
   .card-corporate {
     @apply bg-white border border-gray-100 shadow-card transition-all duration-300 hover:shadow-card-hover;
+    transform: translateZ(0);
+  }
+  .card-corporate:hover {
+    transform: translateY(-2px) translateZ(0);
   }
 
   /* Subtle background alternation */
@@ -135,6 +168,7 @@
 
 ::-webkit-scrollbar-thumb {
   @apply bg-navy/30 rounded-full;
+  transition: background-color 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -147,6 +181,11 @@
   outline-offset: 3px;
 }
 
+/* Remove tap highlight on mobile */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ─── Globe section utilities ─── */
 .scrollbar-none {
   scrollbar-width: none;
@@ -154,6 +193,23 @@
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* ─── Smooth section paint isolation ─── */
+section {
+  contain: layout style;
+}
+
+/* ─── GPU acceleration for animated elements ─── */
+.card-corporate,
+[class*="animate-"],
+.btn-primary,
+.btn-secondary,
+.btn-white,
+.btn-outline-white {
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* ─── Print ─── */

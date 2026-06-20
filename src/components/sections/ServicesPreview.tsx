@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
@@ -17,11 +17,13 @@ export default function ServicesPreview() {
     setActiveIndex((idx + total) % total);
   }, [total]);
 
-  // Auto-advance every 3s
+  // Auto-advance every 4s — properly managed with ref to avoid stale closures
   useEffect(() => {
-    autoplayRef.current = setInterval(() => goTo(activeIndex + 1), 3000);
+    autoplayRef.current = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % total);
+    }, 4000);
     return () => { if (autoplayRef.current) clearInterval(autoplayRef.current); };
-  }, [activeIndex, goTo]);
+  }, [total]);
 
   return (
     <section className="section-pad bg-section-alt" aria-labelledby="services-preview-heading">
@@ -47,21 +49,23 @@ export default function ServicesPreview() {
         {/* ── MOBILE: Auto-slideshow ── */}
         <div className="sm:hidden">
           <div className="relative overflow-hidden">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-white"
-            >
-              <ServiceCard
-                title={services[activeIndex].title}
-                description={services[activeIndex].description}
-                icon={services[activeIndex].icon}
-                index={0}
-              />
-            </motion.div>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="bg-white"
+              >
+                <ServiceCard
+                  title={services[activeIndex].title}
+                  description={services[activeIndex].description}
+                  icon={services[activeIndex].icon}
+                  index={0}
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Controls row */}

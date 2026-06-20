@@ -7,6 +7,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy text-white/70" role="contentinfo">
+      {/* Subtle gradient accent at top */}
+      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" aria-hidden="true" />
       <div className="container-corporate py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
 

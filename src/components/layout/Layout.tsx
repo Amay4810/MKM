@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 pt-16 lg:pt-18" id="main-content" role="main">
+      <main className="flex-1 pt-16 lg:pt-[4.5rem]" id="main-content" role="main">
         {children}
       </main>
       <Footer />

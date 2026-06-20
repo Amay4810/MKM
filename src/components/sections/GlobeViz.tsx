@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { destinations, regionColors, regionCentroids, type Destination } from '../../data/destinations';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -16,6 +16,9 @@ const HUB = { lat: 28.6139, lng: 77.209 };
 const ZOOM_STEP = 0.35;
 const MIN_ALT = 0.85;
 const MAX_ALT = 3.2;
+
+// Solid background that matches the section — eliminates alpha compositing flicker
+const GLOBE_BG = '#EBF4FF';
 
 // Subtle animated arc per destination
 function buildArcs(activeRegion: string) {
@@ -139,6 +142,16 @@ export default function GlobeViz({
     // Block scroll-wheel zoom; allow 2-finger pinch
     const canvas = g.renderer()?.domElement;
     if (canvas) {
+      // Fix cursor — use grab/grabbing cursors properly
+      canvas.style.cursor = 'grab';
+
+      canvas.addEventListener('mousedown', () => {
+        canvas.style.cursor = 'grabbing';
+      });
+      canvas.addEventListener('mouseup', () => {
+        canvas.style.cursor = 'grab';
+      });
+
       canvas.addEventListener('wheel',
         (e: WheelEvent) => { e.preventDefault(); e.stopPropagation(); },
         { passive: false });
@@ -155,6 +168,11 @@ export default function GlobeViz({
             currentAltRef.current = Math.min(MAX_ALT, Math.max(MIN_ALT, pov.altitude));
         }, 60);
       }, { passive: true });
+
+      // Reset cursor when mouse leaves the canvas entirely — prevents stuck cursor
+      canvas.addEventListener('mouseleave', () => {
+        canvas.style.cursor = 'grab';
+      });
     }
   }, [reducedMotion]);
 
@@ -168,8 +186,9 @@ export default function GlobeViz({
     globeRef.current.pointOfView({ ...c, altitude: alt }, 1400);
   }, [activeRegion, isLoaded]);
 
-  const arcs = buildArcs(activeRegion);
-  const points = buildPoints(activeRegion);
+  // ─── Memoize data to prevent re-renders causing flicker ───
+  const arcs = useMemo(() => buildArcs(activeRegion), [activeRegion]);
+  const points = useMemo(() => buildPoints(activeRegion), [activeRegion]);
 
   // Hover — only fires setState when the hovered destination actually changes
   type PointDatum = typeof points[0];
@@ -184,13 +203,23 @@ export default function GlobeViz({
       globeRef.current.controls().autoRotate = !dest && !reducedMotion;
   }, [onDestinationHover, reducedMotion]);
 
+  // Reset hover state when mouse leaves the container
+  const handleContainerMouseLeave = useCallback(() => {
+    if (lastHoveredKeyRef.current !== null) {
+      lastHoveredKeyRef.current = null;
+      onDestinationHover(null);
+      if (globeRef.current)
+        globeRef.current.controls().autoRotate = !reducedMotion;
+    }
+  }, [onDestinationHover, reducedMotion]);
+
   // ── Loading skeleton ──────────────────────────────────────────────
   if (!GlobeComponent) {
     return (
       <div
         ref={containerRef}
         className="w-full flex items-center justify-center"
-        style={{ height: dims.height, background: 'linear-gradient(to bottom, #F5F8FC, #EBF4FF)' }}
+        style={{ height: dims.height, background: `linear-gradient(to bottom, #F5F8FC, ${GLOBE_BG})` }}
       >
         <div className="flex flex-col items-center gap-4">
           <div className="relative w-12 h-12">
@@ -210,7 +239,12 @@ export default function GlobeViz({
     <div
       ref={containerRef}
       className="w-full relative overflow-hidden"
-      style={{ height: dims.height }}
+      style={{
+        height: dims.height,
+        contain: 'layout style paint',
+        willChange: 'auto',
+      }}
+      onMouseLeave={handleContainerMouseLeave}
       aria-label="Interactive 3D globe — MKM Air Travels destination network"
     >
       <GlobeComponent
@@ -218,13 +252,13 @@ export default function GlobeViz({
         width={dims.width}
         height={dims.height}
 
-        // Earth
+        // Earth — solid background eliminates alpha compositing flicker
         globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
         showAtmosphere
         atmosphereColor="#90CAF9"
         atmosphereAltitude={0.14}
-        backgroundColor="rgba(0,0,0,0)"
+        backgroundColor={GLOBE_BG}
 
         // Flight routes — thin, animated, low opacity
         arcsData={arcs}

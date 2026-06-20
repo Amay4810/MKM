@@ -175,8 +175,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/5 to-transparent pointer-events-none" aria-hidden="true" />
+      {/* Bottom fade — smoother transition into content */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/8 via-white/3 to-transparent pointer-events-none" aria-hidden="true" />
     </section>
   );
 }
