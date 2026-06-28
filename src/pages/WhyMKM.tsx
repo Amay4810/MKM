@@ -17,7 +17,32 @@ export default function WhyMKM() {
           name="description"
           content="Experience, responsiveness, and travel management built around client trust. 25+ years of IATA accredited travel expertise in New Delhi."
         />
-        <link rel="canonical" href="https://mkmairtravels.com/why-mkm" />
+        <link rel="canonical" href="https://mkmairtravels.in/why-mkm" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Why Choose MKM Air Travels | Experience & Reliability" />
+        <meta property="og:description" content="Experience, responsiveness, and travel management built around client trust. 25+ years of IATA accredited travel expertise in New Delhi." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/why-mkm" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Why Choose MKM Air Travels | Experience & Reliability" />
+        <meta name="twitter:description" content="Experience, responsiveness, and travel management built around client trust. 25+ years of IATA accredited travel expertise in New Delhi." />
+
+        {/* Breadcrumb JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Why MKM", "item": "https://mkmairtravels.in/why-mkm" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <PageHero

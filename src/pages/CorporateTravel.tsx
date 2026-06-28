@@ -56,7 +56,32 @@ export default function CorporateTravel() {
           name="description"
           content="MKM supports businesses with air ticketing, hotels, visas, transfers, group movements, MICE travel, billing support, and dedicated corporate travel servicing."
         />
-        <link rel="canonical" href="https://mkmairtravels.com/corporate-travel" />
+        <link rel="canonical" href="https://mkmairtravels.in/corporate-travel" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Corporate Travel Management Services | MKM Air Travels" />
+        <meta property="og:description" content="MKM supports businesses with air ticketing, hotels, visas, transfers, group movements, MICE travel, billing support, and dedicated corporate travel servicing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/corporate-travel" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Corporate Travel Management Services | MKM Air Travels" />
+        <meta name="twitter:description" content="MKM supports businesses with air ticketing, hotels, visas, transfers, group movements, MICE travel, billing support, and dedicated corporate travel servicing." />
+
+        {/* Breadcrumb JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Corporate Travel", "item": "https://mkmairtravels.in/corporate-travel" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <PageHero

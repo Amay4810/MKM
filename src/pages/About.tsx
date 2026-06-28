@@ -34,8 +34,32 @@ export default function About() {
           name="description"
           content="Learn about MKM Air Travels Pvt. Ltd., a New Delhi based travel company serving corporates, SMEs, institutions, groups, and individual travellers since 1999."
         />
+        <link rel="canonical" href="https://mkmairtravels.in/about" />
+
+        {/* Open Graph */}
         <meta property="og:title" content="About MKM Air Travels | Trusted Travel Management Since 1999" />
-        <link rel="canonical" href="https://mkmairtravels.com/about" />
+        <meta property="og:description" content="Learn about MKM Air Travels Pvt. Ltd., a New Delhi based travel company serving corporates, SMEs, institutions, groups, and individual travellers since 1999." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/about" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="About MKM Air Travels | Trusted Travel Management Since 1999" />
+        <meta name="twitter:description" content="Learn about MKM Air Travels Pvt. Ltd., a New Delhi based travel company serving corporates, SMEs, institutions, groups, and individual travellers since 1999." />
+
+        {/* Breadcrumb JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+              { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://mkmairtravels.in/about" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <PageHero

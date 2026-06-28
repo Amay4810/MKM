@@ -31,7 +31,112 @@ export default function FAQs() {
           name="description"
           content="Find answers about MKM's corporate travel services, group bookings, MICE travel, GST billing, visa support, credit facility, and contact options."
         />
-        <link rel="canonical" href="https://mkmairtravels.com/faqs" />
+        <link rel="canonical" href="https://mkmairtravels.in/faqs" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="FAQs | MKM Air Travels Pvt. Ltd." />
+        <meta property="og:description" content="Find answers about MKM's corporate travel services, group bookings, MICE travel, GST billing, visa support, credit facility, and contact options." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/faqs" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="FAQs | MKM Air Travels Pvt. Ltd." />
+        <meta name="twitter:description" content="Find answers about MKM's corporate travel services, group bookings, MICE travel, GST billing, visa support, credit facility, and contact options." />
+
+        {/* Breadcrumb + FAQPage JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+                { "@type": "ListItem", "position": 2, "name": "FAQs", "item": "https://mkmairtravels.in/faqs" }
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What does MKM Air Travels specialise in?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MKM provides end to end travel solutions including corporate travel management, air ticketing, hotel bookings, visa assistance, car rentals, transfers, corporate MICE travel, group handling, leisure travel, forex coordination, and travel insurance assistance."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does MKM work with corporate clients?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. MKM works with corporates, SMEs, institutions, and businesses requiring reliable travel management support for regular and ad hoc travel needs."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can MKM handle urgent or last minute travel requests?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Our team regularly assists with urgent bookings, itinerary changes, last minute travel requirements, and time sensitive coordination, subject to availability and airline or supplier rules."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does MKM manage group bookings and MICE travel?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. MKM supports group travel, corporate offsites, meetings, incentive movements, conferences, exhibitions, delegate travel, and related accommodation and transfer coordination."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can MKM provide GST compliant invoices?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. MKM is a GST registered private limited company and provides GST compliant billing as applicable."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does MKM provide visa services?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MKM assists with visa documentation guidance and process coordination. Visa approval remains subject to the decision of the relevant embassy, consulate, or issuing authority."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does MKM offer credit facilities to corporate clients?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Credit facility may be considered for eligible corporate accounts after evaluation and agreement of commercial terms."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does MKM handle leisure holidays too?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Alongside corporate travel, MKM also supports customised holidays, cruises, rail passes, and travel planning for individual and family trips."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can we contact MKM?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can contact the team directly by phone, WhatsApp, or email using the details on the Contact Us page. The fastest way to reach us is by call or WhatsApp."
+                  }
+                }
+              ]
+            }
+          ])}
+        </script>
       </Helmet>
 
       <PageHero

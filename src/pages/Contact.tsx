@@ -120,7 +120,32 @@ export default function Contact() {
           name="description"
           content="Contact MKM Air Travels for corporate travel, group movements, MICE travel, flights, hotels, visas, transfers, and travel assistance."
         />
-        <link rel="canonical" href="https://mkmairtravels.com/contact" />
+        <link rel="canonical" href="https://mkmairtravels.in/contact" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact MKM Air Travels Pvt. Ltd. | New Delhi" />
+        <meta property="og:description" content="Contact MKM Air Travels for corporate travel, group movements, MICE travel, flights, hotels, visas, transfers, and travel assistance." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/contact" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact MKM Air Travels Pvt. Ltd. | New Delhi" />
+        <meta name="twitter:description" content="Contact MKM Air Travels for corporate travel, group movements, MICE travel, flights, hotels, visas, transfers, and travel assistance." />
+
+        {/* Breadcrumb JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://mkmairtravels.in/contact" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <PageHero

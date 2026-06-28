@@ -16,7 +16,32 @@ export default function Services() {
           name="description"
           content="Explore MKM's end to end travel services including corporate travel, group travel, MICE movements, hotels, visas, transfers, leisure holidays, forex coordination, and travel insurance support."
         />
-        <link rel="canonical" href="https://mkmairtravels.com/services" />
+        <link rel="canonical" href="https://mkmairtravels.in/services" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Travel Services | Flights, Hotels, Visas, MICE and Group Travel | MKM" />
+        <meta property="og:description" content="Explore MKM's end to end travel services including corporate travel, group travel, MICE movements, hotels, visas, transfers, leisure holidays, forex coordination, and travel insurance support." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkmairtravels.in/services" />
+        <meta property="og:site_name" content="MKM Air Travels Pvt. Ltd." />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Travel Services | Flights, Hotels, Visas, MICE and Group Travel | MKM" />
+        <meta name="twitter:description" content="Explore MKM's end to end travel services including corporate travel, group travel, MICE movements, hotels, visas, transfers, and travel insurance support." />
+
+        {/* Breadcrumb JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mkmairtravels.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://mkmairtravels.in/services" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <PageHero
