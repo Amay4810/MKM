@@ -64,6 +64,13 @@ export const faqs: FAQItem[] = [
       'You can contact the team directly by phone, WhatsApp, or email using the details on the Contact Us page. The fastest way to reach us is by call or WhatsApp.',
     category: 'General',
   },
+  {
+    id: 'faq-10',
+    question: 'What is MKM\'s pricing policy?',
+    answer:
+      'At MKM Air Travels Pvt. Ltd., the pricing of flights, hotels, holiday packages, visas and other travel services depends on travel dates, availability, supplier pricing and customer requirements. A detailed quotation, including applicable taxes, fees and service charges, is shared with the customer before any payment is collected. Payments are accepted only after the customer reviews and confirms the quotation. Booking confirmations are subject to payment realization and supplier confirmation.',
+    category: 'Pricing',
+  },
 ];
 
-export const faqCategories = ['All', 'General', 'Corporate', 'MICE & Groups', 'Billing', 'Visa', 'Leisure'];
+export const faqCategories = ['All', 'General', 'Corporate', 'MICE & Groups', 'Billing', 'Visa', 'Leisure', 'Pricing'];
